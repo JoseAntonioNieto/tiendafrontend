@@ -28,7 +28,7 @@
         let opciones = {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify()
+            body: JSON.stringify(documento)
         };
         fetch(`${URL.articulos}${documento._id}`, opciones)
             .then(res => res.json())
