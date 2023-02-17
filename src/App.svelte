@@ -1,7 +1,16 @@
 <script>
+	import { setContext } from "svelte";
+
 	import Nav from "./Nav.svelte";
 	import { Router } from "svelte-routing";
     import Contenido from "./Contenido.svelte";
+
+	const URL = {
+		articulos: "https://tiendabackend.fly.dev/api/articulos/",
+		clientes: ""
+	};
+
+	setContext("URL", URL);
 </script>
 
 <Router>
