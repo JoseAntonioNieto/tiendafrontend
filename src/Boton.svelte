@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import { getContext } from "svelte";
+    import { data } from "./store";
     const URL = getContext("URL");
 
     export let documento = {};
@@ -18,7 +19,7 @@
         };
         fetch(URL.articulos, opciones)
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(doc => $data = [...$data, doc])
             .catch();
         console.log(documento.nombre);
     }
@@ -44,7 +45,7 @@
         };
         fetch(`${URL.articulos}${documento._id}`, opciones)
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then($data = $data.filter(doc => doc._id != documento._id))
             .catch();
     }
 
